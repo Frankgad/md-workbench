@@ -148,12 +148,12 @@ static int prepare_global(){
   if (! bucket_per_set){
     // check if the bucket exists, otherwise create it
 
-    S3_test_bucket(s3_protocol, S3UriStylePath, access_key, secret_key, NULL, bucket_prefix, S3CannedAclPrivate, locationConstraint, NULL,  & responseHandler, NULL);
+    S3_test_bucket(s3_protocol, S3UriStylePath, access_key, secret_key, NULL, bucket_prefix, S3CannedAclPrivate, locationConstraint, NULL, 0,  & responseHandler, NULL);
     if (s3status != S3StatusErrorNoSuchBucket){
        printf("Error, the bucket %s already exists\n", bucket_prefix);
        return MD_ERROR_UNKNOWN;
     }
-    S3_create_bucket(s3_protocol, access_key, secret_key, NULL, bucket_prefix, S3CannedAclPrivate, locationConstraint, NULL,  & responseHandler, NULL);
+    S3_create_bucket(s3_protocol, access_key, secret_key, NULL, bucket_prefix, S3CannedAclPrivate, locationConstraint, NULL, 0,  & responseHandler, NULL);
     CHECK_ERROR
     return MD_SUCCESS;
   }
@@ -179,7 +179,7 @@ static int create_dset(char * name){
     s3_protocol = S3ProtocolHTTPS;
   }
   if (bucket_per_set){
-    S3_create_bucket(s3_protocol, access_key, secret_key, NULL, name, S3CannedAclPrivate, locationConstraint, NULL,  & responseHandler, NULL);
+    S3_create_bucket(s3_protocol, access_key, secret_key, NULL, name, S3CannedAclPrivate, locationConstraint, NULL, 0,  & responseHandler, NULL);
     CHECK_ERROR
     return MD_SUCCESS;
   }else{
@@ -231,7 +231,7 @@ static S3PutObjectHandler putObjectHandler = { {  &responsePropertiesCallback, &
 static int write_obj(char * bucket_name, char * obj_name, char * buf, size_t obj_size){
   struct data_handling dh = { .buf = buf, .size = obj_size };
   S3BucketContext * bucket = getBucket(bucket_name);
-  S3_put_object(bucket, obj_name, obj_size, NULL, NULL, &putObjectHandler, & dh);
+  S3_put_object(bucket, obj_name, obj_size, NULL, NULL, 0, &putObjectHandler, & dh);
   
     if (! s3_compatible){
     CHECK_ERROR

@@ -34,5 +34,8 @@ configure.log
 *.dSYM/
 *.su
 
+# IDE
+.vscode
+
 build
 md-real-io
