@@ -18,7 +18,7 @@ docker run $OPT -h centos7 kunkel/md-workbench:centos7 $ARGS
 ERROR=$(($ERROR+$?))
 
 if [[ $ERROR != 0 ]] ; then
-	echo "Errors occured: $ERROR"
+	echo "Errors occurred: $ERROR"
 else
 	echo "OK all tests passed!"
 fi

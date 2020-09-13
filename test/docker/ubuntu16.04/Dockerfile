@@ -6,7 +6,7 @@ RUN apt-get install -y libopenmpi-dev openmpi-bin mpich git cmake pkg-config gcc
 
 # POSTGRES TESTS
 RUN apt-get install -y postgresql libpq-dev
-# Sleep is neccesary as the DB starts in the background
+# Sleep is necessary as the DB starts in the background
 RUN /etc/init.d/postgresql start; sleep 5; /etc/init.d/postgresql status ; su - postgres -c "createuser root -d" ; su - postgres -c "echo CREATE DATABASE ROOT OWNER ROOT | psql"
 
 # MONGODB TESTS

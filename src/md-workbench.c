@@ -67,7 +67,7 @@ NULL
 #endif
 #endif
 
-// successfull, errors
+// successful, errors
 typedef struct {
   int suc;
   int err;
@@ -868,7 +868,7 @@ static option_help options [] = {
   {0, "start-item", "The iteration number of the item to start with, allowing to offset the operations", OPTION_OPTIONAL_ARGUMENT, 'l', & o.start_item_number},
   {0, "print-detailed-stats", "Print detailed machine parsable statistics.", OPTION_FLAG, 'd', & o.print_detailed_stats},
   {0, "read-only", "Run read-only during benchmarking phase (no deletes/writes), probably use with -2", OPTION_FLAG, 'd', & o.read_only},
-  {0, "ignore-precreate-errors", "Ignore errors occuring during the pre-creation phase", OPTION_FLAG, 'd', & o.ignore_precreate_errors},
+  {0, "ignore-precreate-errors", "Ignore errors occurring during the pre-creation phase", OPTION_FLAG, 'd', & o.ignore_precreate_errors},
   {0, "process-reports", "Independent report per process/rank", OPTION_FLAG, 'd', & o.process_report},
   {'v', "verbose", "Increase the verbosity level", OPTION_FLAG, 'd', & o.verbosity},
   {0, "run-info-file", "The log file for resuming a previous run", OPTION_OPTIONAL_ARGUMENT, 's', & o.run_info_file},

@@ -7,7 +7,7 @@ if [ -e $SCRIPT ] ; then
   mkdir -p $BUILD
   $SCRIPT $BUILD "$@"
   if [[ $? != 0 ]]  ; then
-    echo "Errors occured, see: "
+    echo "Errors occurred, see: "
     find $BUILD/ -name LastTest.log | sed "s#/data/#../../#"
     exit 1
   fi

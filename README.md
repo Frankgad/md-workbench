@@ -97,7 +97,7 @@ The output of two processes and an invocation without arguments is as follows (c
         # max: The maximum runtime for any process
         # min: The minimum runtime for any process
         # mean: arithmethic mean runtime across all processes
-        # balance: min runtime divided by max, a balance of 50% means that the minimum process took 50% of the runtime of the longest runing process. A high value is favorable.
+        # balance: min runtime divided by max, a balance of 50% means that the minimum process took 50% of the runtime of the longest running process. A high value is favorable.
         # stddev: the standard deviation of runtime. A low value is favorable.
         # Rate: given in iops/s, each operation like stat, create, read, delete is counted as one IOP, this number is computed based on the global timer
         # objects: total number of objects written/accessessed, since we used two processes, 10 dirs and 1000 obj/dir, the example has 20000 objects
